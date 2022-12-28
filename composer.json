@@ -1,0 +1,18 @@
+{
+    "name": "explorer/directory-iterator",
+    "description": "For learning iterators",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "DirectoryIterator\\": "src/Class"
+        }
+    },
+    "authors": [
+        {
+            "name": "Doniyor Asadullaev",
+            "email": "asadullaevdonier@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
