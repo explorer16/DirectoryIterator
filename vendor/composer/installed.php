@@ -3,7 +3,7 @@
         'name' => 'explorer/directory-iterator',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9b70d386d1f008618761b9582b6e228de85fe42e',
+        'reference' => '07f7ee772c5e3ee2ca828496ae57e527712c4ca9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'explorer/directory-iterator' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9b70d386d1f008618761b9582b6e228de85fe42e',
+            'reference' => '07f7ee772c5e3ee2ca828496ae57e527712c4ca9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

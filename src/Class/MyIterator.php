@@ -1,6 +1,6 @@
 <?php
 
-namespace src\DirectoryIterator\src\Class;
+namespace Class\MyIterator;
 
 class MyIterator implements \Iterator
 {

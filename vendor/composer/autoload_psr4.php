@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Explorer\\DirectoryIterator\\' => array($baseDir . '/src'),
+    'project\\' => array($baseDir . '/src'),
 );

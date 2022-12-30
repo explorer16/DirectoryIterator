@@ -2,4 +2,4 @@
 
 require 'vendor/autoload.php';
 
-$iterator=new \src\DirectoryIterator\src\Class\MyIterator();
+$iterator=new Class\MyIterator\MyIterator();
