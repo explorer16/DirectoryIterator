@@ -1,10 +1,11 @@
 {
     "name": "explorer/directory-iterator",
-    "description": "Learning iterators",
+    "description": "For learning iterators",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Explorer\\DirectoryIterator\\": "src/"
+            "Class\\": "src/Class",
+            "Interface\\": "src/Interface"
         }
     },
     "authors": [

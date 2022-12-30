@@ -10,7 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Composer\Autoload;
+namespace src\DirectoryIterator\vendor\composer;
+
+use function Composer\Autoload\strtr;
 
 /**
  * ClassLoader implements a PSR-0, PSR-4 and classmap class loader.
@@ -42,6 +44,9 @@ namespace Composer\Autoload;
  */
 class ClassLoader
 {
+    /** @var \Closure(string):void */
+    private static $includeFile;
+
     /** @var ?string */
     private $vendorDir;
 
@@ -106,6 +111,7 @@ class ClassLoader
     public function __construct($vendorDir = null)
     {
         $this->vendorDir = $vendorDir;
+        self::initializeIncludeClosure();
     }
 
     /**
@@ -425,7 +431,7 @@ class ClassLoader
     public function loadClass($class)
     {
         if ($file = $this->findFile($class)) {
-            includeFile($file);
+            (self::$includeFile)($file);
 
             return true;
         }
@@ -555,18 +561,23 @@ class ClassLoader
 
         return false;
     }
-}
 
-/**
- * Scope isolated include.
- *
- * Prevents access to $this/self from included files.
- *
- * @param  string $file
- * @return void
- * @private
- */
-function includeFile($file)
-{
-    include $file;
+    private static function initializeIncludeClosure(): void
+    {
+        if (self::$includeFile !== null) {
+            return;
+        }
+
+        /**
+         * Scope isolated include.
+         *
+         * Prevents access to $this/self from included files.
+         *
+         * @param  string $file
+         * @return void
+         */
+        self::$includeFile = static function($file) {
+            include $file;
+        };
+    }
 }

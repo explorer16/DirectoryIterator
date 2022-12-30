@@ -1,8 +1,8 @@
 <?php
 
-namespace Class;
+namespace src\DirectoryIterator\src\Class;
 
-class UserIterator implements \Iterator
+class MyIterator implements \Iterator
 {
 
     public function __construct()

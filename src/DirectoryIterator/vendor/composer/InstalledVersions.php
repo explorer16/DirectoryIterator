@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Composer;
+namespace src\DirectoryIterator\vendor\composer;
 
-use Composer\Autoload\ClassLoader;
 use Composer\Semver\VersionParser;
+use function Composer\strtr;
 
 /**
  * This class is copied in every Composer installed project and available to all
@@ -318,7 +318,7 @@ class InstalledVersions
     private static function getInstalled()
     {
         if (null === self::$canGetVendors) {
-            self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegisteredLoaders');
+            self::$canGetVendors = method_exists('src\DirectoryIterator\vendor\composer\ClassLoader', 'getRegisteredLoaders');
         }
 
         $installed = array();
