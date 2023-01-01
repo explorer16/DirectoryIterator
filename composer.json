@@ -2,11 +2,7 @@
     "name": "explorer/directory-iterator",
     "description": "Learning iterators",
     "type": "project",
-    "autoload": {
-        "psr-4": {
-            "project\\": "src/"
-        }
-    },
+    "license": "MIT",
     "authors": [
         {
             "name": "Doniyor Asadullaev",
@@ -14,5 +10,13 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Classs\\": "src/Classs"
+        },
+        "files": [
+            "tables/tables.php"
+        ]
+    }
 }
