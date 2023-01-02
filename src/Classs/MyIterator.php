@@ -2,24 +2,26 @@
 
 namespace Classs;
 
-class MyIterator implements \Iterator
+class MyIterator implements \Iterator, \ArrayAccess
 {
     private $rows;
     private $position;
     public function __construct($filename)
     {
         $path='tables/'.$filename;
+
         if(!file_exists($path)){
-            echo $path."\n";
             die('error 404');
         }
+
         $rows=file_get_contents($path);
-        //$rows=mb_convert_encoding($rows, 'UTF-8',mb_detect_encoding($rows,['cp1251','UTF-8']));
         $rows=explode("\n",$rows);
+
         foreach ($rows as $value){
             $value=str_getcsv($value);
             $value=$value[0];
-            $this->rows[]=explode(';',$value);
+            $row=explode(';',$value);
+            $this->rows[array_shift($row)]=$row;
         }
 
     }
@@ -44,6 +46,24 @@ class MyIterator implements \Iterator
         ++$this->position;
     }
 
-
-
+    public function offsetExists(mixed $offset)
+    {
+        return isset($this->rows[$offset]);
+    }
+    public function offsetGet(mixed $offset)
+    {
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+    public function offsetSet(mixed $offset, mixed $value)
+    {
+        if(is_null($offset)){
+            $this->rows[]=$value;
+        } else {
+            $this->rows[$offset]=$value;
+        }
+    }
+    public function offsetUnset(mixed $offset)
+    {
+        unset($this->rows[$offset]);
+    }
 }
